@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { TitleBox } from './titleBox.js';
+import App from './App';
 
   ReactDOM.render(
-    <TitleBox />,
+    <App />,
     document.getElementById('root')
   );
