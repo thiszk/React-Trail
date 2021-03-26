@@ -2,6 +2,7 @@ import React from 'react';
 import { EpisodeCard } from './episodeCard';
 import { EpisodeList } from './episodeList';
 import { EpisodeNavigationBar } from './episodeNavigationBar';
+import { SearchBar } from './searchBar';
 
 export class EpisodeBox extends React.Component {
     render() {
@@ -10,6 +11,7 @@ export class EpisodeBox extends React.Component {
                 <EpisodeList/>
                 <EpisodeNavigationBar/>
                 <EpisodeCard />
+                <SearchBar />
             </div>
         )
     };
