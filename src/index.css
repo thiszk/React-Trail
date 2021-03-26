@@ -115,7 +115,7 @@ body{
     float: left;
   }
 
-  .episodeButtonList button{
+  .episodeButton {
     display: block;
     color: black; 
     border: 2px;
@@ -127,7 +127,7 @@ body{
     width: 200px;
   }
 
-  .episodeButtonList button:hover {
+  .episodeButton:hover {
     background-color: yellowgreen;
     color: white;
   }
@@ -203,13 +203,11 @@ body{
   .pageButtonGroup :first-child {
     border-bottom-left-radius: 10px;
     border-top-left-radius: 10px;
-    border-color: yellowgreen;
   }
 
   .pageButtonGroup :last-child {
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
-    border-color: yellowgreen;
   }
 
   .pageButton {
@@ -232,7 +230,7 @@ body{
     width: inherit;
   }
 
-  .next{
+  .nextButton{
     background-color: green;
     color: white;
     margin-left: 25px;
@@ -247,7 +245,7 @@ body{
     cursor: pointer;
   }
 
-  .prev{
+  .previousButton{
     background-color: green;
     color: white;
     margin-right: 25px;
