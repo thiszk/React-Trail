@@ -60,20 +60,19 @@ const NavigationBar = styled.div`
     width: 200px;
 ;`
 
-export class EpisodeNavigationBar extends React.Component {
-    render () {
-        return (
-            <NavigationBar>
-                <PreviousButton>{`<`}</PreviousButton>
-                <PageButtonsGroup>
-                    <PageButton>1</PageButton>
-                    <PageButton>2</PageButton>
-                    <PageButton>3</PageButton>
-                </PageButtonsGroup>
-                <NextButton>{`>`}</NextButton>
-            </NavigationBar>                
-        )
-    };
+export function EpisodeNavigationBar() {
+    return (
+        <NavigationBar>
+            <PreviousButton>{`<`}</PreviousButton>
+            <PageButtonsGroup>
+                <PageButton>1</PageButton>
+                <PageButton>2</PageButton>
+                <PageButton>3</PageButton>
+            </PageButtonsGroup>
+            <NextButton>{`>`}</NextButton>
+        </NavigationBar>                
+    )
 }
+
 
 

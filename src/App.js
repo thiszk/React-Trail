@@ -5,6 +5,7 @@ import { TitleBoxContainer } from './components/titleBox';
 import GlobalStyle from './theme/globalStyles';
 import { EpisodeBoxDiv } from './components/episodeBox';
 import { EpisodeCardDiv } from './components/episodeCard';
+import { SearchBarDiv } from './components/searchBar';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <GlobalStyle />
       <TitleBoxContainer />
       <EpisodeBoxDiv />
-      <EpisodeCardDiv />  
+      <EpisodeCardDiv />
+      <SearchBarDiv />  
     </Fragment>
   );
 }
