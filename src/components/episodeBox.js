@@ -1,14 +1,25 @@
 import React from 'react';
+import styled from "styled-components";
 import { EpisodeList } from './episodeList';
-import { EpisodeNavigationBar } from './episodeNavigationBar';
+import backgroundImage from '../img/RaM_bgd.jpg';
 
-export class EpisodeBox extends React.Component {
+
+const EpisodeBox = styled.div`
+    background: url(${backgroundImage}) no-repeat right;
+    background-size: cover;
+    width: 100%;
+    height: 720px;
+    box-sizing: content-box;
+    margin-top: -30px;
+    position: absolute; 
+`;
+
+export class EpisodeBoxDiv extends React.Component {
     render() {
         return(
-            <div className="episodeBox">
+            <EpisodeBox >
                 <EpisodeList/>
-                <EpisodeNavigationBar/>
-            </div>
+            </EpisodeBox>
         )
     };
 }

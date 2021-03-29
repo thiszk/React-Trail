@@ -5,13 +5,14 @@ import { TitleBoxContainer } from './components/titleBox';
 import GlobalStyle from './theme/globalStyles';
 import { EpisodeList } from './components/episodeList';
 import { EpisodeNavigationBar } from './components/episodeNavigationBar';
+import { EpisodeBoxDiv } from './components/episodeBox';
 
 function App() {
   return (
     <Fragment>
       <GlobalStyle />
       <TitleBoxContainer />
-      <EpisodeList />
+      <EpisodeBoxDiv />
         
     </Fragment>
   );
