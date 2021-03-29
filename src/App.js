@@ -3,9 +3,8 @@ import React from 'react';
 import './App.css';
 import { TitleBoxContainer } from './components/titleBox';
 import GlobalStyle from './theme/globalStyles';
-import { EpisodeList } from './components/episodeList';
-import { EpisodeNavigationBar } from './components/episodeNavigationBar';
 import { EpisodeBoxDiv } from './components/episodeBox';
+import { EpisodeCardDiv } from './components/episodeCard';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
       <GlobalStyle />
       <TitleBoxContainer />
       <EpisodeBoxDiv />
-        
+      <EpisodeCardDiv />  
     </Fragment>
   );
 }
