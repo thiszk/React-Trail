@@ -24,6 +24,7 @@ const TitleDescription = styled.p`
     font-style: italic;
     padding-left: 20px;
     text-align: left;
+    height: 80px;
 `;
 
 const TitleLogo = styled.img`
@@ -37,24 +38,30 @@ const TitleLogo = styled.img`
 `;
 
 const TitleBox = styled.div`
-    background-color: black;
+    background-image: linear-gradient(to bottom, #000000 0%, #252825 100%);
     text-align: center;
     width: inherit;
+    height:100%;
     margin-top: -50px;
+    margin-botton: -50px:
 `;
 
-export function TitleBoxContainer() {
+export function TitleBoxContainer({ episodeNumber }) {
+    const number = episodeNumber.data.data.episodes.info;
+    
     return (
         <TitleBox>
             <TitleLogo />
             <MainTitle>Rick and Morty</MainTitle>
-            <NumberOfEpisodes>No. of Episodes : 41</NumberOfEpisodes>
+            <NumberOfEpisodes>No of Episodes : { number.count }</NumberOfEpisodes>
             <TitleDescription>Rick and Morty is an American adult animated science fiction 
-    sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's nighttime Adult Swim 
-    programming block. The series follows the misadventures of cynical mad scientist Rick Sanchez 
-    and his good-hearted but fretful grandson Morty Smith, who split their time between domestic 
-    life and interdimensional adventures.</TitleDescription>
+                sitcom created by Justin Roiland and Dan Harmon for Cartoon Network's nighttime Adult Swim 
+                and his good-hearted but fretful grandson Morty Smith, who split their time between domestic 
+                programming block. The series follows the misadventures of cynical mad scientist Rick Sanchez 
+                life and interdimensional adventures.
+            </TitleDescription>
         </TitleBox>
-    )
+    );
 }
 
+    

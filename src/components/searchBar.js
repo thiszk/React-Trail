@@ -1,26 +1,38 @@
-import React, { Fragment } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-import searchIcon from '../img/RaM_searchIcon.png'
+import searchIcon from '../img/RaM_searchIcon.png';
+import { getEpisodesByName } from './getFunctions';
+import { initialPage, blank } from '../index';
 
-export function SearchBarDiv() {
+export function SearchBarDiv({ setEpisodeList, setCurrentPage}) {
+    const [input, setInput] = useState(blank);
+
     return (
         <SearchBar>
-            <SearchButton />
-            <SearchInput />
+            <SearchButton onClick = { () => getFilteredList(input, setEpisodeList, setCurrentPage) }/>
+            <SearchInput value = { input } onInput ={ text => setInput(text.target.value) }/>
         </SearchBar>
     )
 }
 
+function getFilteredList(searchInput, setEpisodeList, setCurrentPage) {
+    setCurrentPage(initialPage);
+    getEpisodesByName(searchInput, initialPage).then(list => setEpisodeList(list));  
+    
+}
+
 const SearchBar = styled.div`
     position: absolute;
-    margin-left: 470px;
+    right: 150px;
     width: 100%;
     height: 36px;
+    display: -ms-flexbox;
     display: flex;
+    justify-content: flex-end;
 `;
 
 const SearchButton = styled.button`
-    background-image: url(${searchIcon});
+    background-image: url(${ searchIcon });
     background-position: 3px 1px;
     background-repeat: no-repeat;
     background-size: 30px 30px;

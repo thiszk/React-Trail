@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import styled from 'styled-components';
 import { EpisodeNavigationBar } from './episodeNavigationBar';
+import { getCardInfo } from './getFunctions';
 
 const EpisodeButton = styled.button`
     display: block;
@@ -12,6 +13,7 @@ const EpisodeButton = styled.button`
     margin-block: 10px;
     cursor: pointer;
     width: 200px;
+    background-color: ${ props => props.isSelected ? "yellowgreen" : "white" };
 
     &:hover  {
         background-color: yellowgreen;
@@ -20,35 +22,37 @@ const EpisodeButton = styled.button`
 `;
 
 const EpisodeButtonList = styled.div`
+    color:white;
     padding-left: 50px;
-    padding-top: 30px;
+    padding-top: 40px;
     float: left;
 `;
 
-export function EpisodeList() {
+function getCardById(episodeId, setCardInfo, setCurrentCard) {
+    getCardInfo(episodeId).then((episodeInfo) => setCardInfo(episodeInfo));
+    setCurrentCard(episodeId);
+}
+
+export function EpisodeList({ list, setEpisodeList, setCardInfo, currentPage, setCurrentPage }) {
+    const episodeList = list.data.data.episodes.results;
+    const episodeNav = list.data.data.episodes.info;
+    const [currentCard, setCurrentCard] = useState();
+
     return (
-        <EpisodeButtonList>
-            <EpisodeButton>S01E01</EpisodeButton>
-            <EpisodeButton>S01E02</EpisodeButton>
-            <EpisodeButton>S01E03</EpisodeButton>
-            <EpisodeButton>S01E04</EpisodeButton>
-            <EpisodeButton>S01E05</EpisodeButton>
-            <EpisodeButton>S01E06</EpisodeButton>
-            <EpisodeButton>S01E07</EpisodeButton>
-            <EpisodeButton>S01E08</EpisodeButton>
-            <EpisodeButton>S01E09</EpisodeButton>
-            <EpisodeButton>S01E10</EpisodeButton>
-            <EpisodeButton>S01E11</EpisodeButton>
-            <EpisodeButton>S01E12</EpisodeButton>
-            <EpisodeButton>S01E13</EpisodeButton>
-            <EpisodeButton>S01E14</EpisodeButton>
-            <EpisodeButton>S01E15</EpisodeButton>
-            <EpisodeButton>S01E16</EpisodeButton>
-            <EpisodeButton>S01E17</EpisodeButton>
-            <EpisodeButton>S01E18</EpisodeButton>
-            <EpisodeButton>S01E19</EpisodeButton>
-            <EpisodeButton>S01E20</EpisodeButton>
-            <EpisodeNavigationBar />
-        </EpisodeButtonList>
+        <Fragment>
+            <EpisodeButtonList>
+                { episodeList.map((episodeId) => 
+                    <EpisodeButton key = { episodeId.id } 
+                        onClick = {() => getCardById(episodeId.id, setCardInfo, setCurrentCard) }
+                        isSelected = { episodeId.id == currentCard }>
+                            { episodeId.episode }
+                    </EpisodeButton>) }
+            </EpisodeButtonList >
+            <EpisodeNavigationBar 
+                navInfo = { episodeNav } 
+                setEpisodeList = { setEpisodeList }
+                currentPage = { currentPage }
+                setCurrentPage = { setCurrentPage }/>
+        </Fragment>
     )
 }
