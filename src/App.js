@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useState } from 'react';
+import React from 'react';
+import { TitleBoxContainer } from './components/titleBox';
+import GlobalStyle from './theme/globalStyles';
+import { EpisodeBoxDiv } from './components/episodeBox';
+import { EpisodeCardDiv } from './components/episodeCard';
+import { SearchBarDiv } from './components/searchBar';
 
-function App() {
+
+function App({ firstList, episodeNumber }) {   
+  const [cardInfo, setCardInfo ] = useState(null);
+  const [episodeList, setEpisodeList] = useState(firstList);
+  const [currentPage, setCurrentPage] = useState(1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <GlobalStyle />
+      <TitleBoxContainer episodeNumber = { episodeNumber } />
+      <EpisodeBoxDiv  episodeList = { episodeList } 
+                      setEpisodeList = { setEpisodeList }
+                      setCardInfo = { setCardInfo }
+                      currentPage = { currentPage }
+                      setCurrentPage = { setCurrentPage }/>
+      <EpisodeCardDiv cardInfo = { cardInfo } />
+      <SearchBarDiv setEpisodeList = { setEpisodeList }
+                    setCurrentPage = { setCurrentPage }/>  
+    </Fragment>
   );
 }
 
